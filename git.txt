@@ -8,3 +8,12 @@ git status
 git remote add origin https://github.com/LarissaWanderley/primeiro.git
 git remote
 git push origin master
+
+git commit -m "git"
+git push origin master
+
+git clone https://github.com/LarissaWanderley/primeiro.git nomedapasta
+
+git add *
+git commit -m "novo"
+git push origin master
