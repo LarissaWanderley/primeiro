@@ -1,6 +1,10 @@
 git init
 
+
 git add *
+
+git config user.name "João Carlos Fonseca"
+git config user.email "jcfonsecagit@gmail.com"
 
 git commit -m "teste1"
 git log
@@ -13,6 +17,7 @@ git commit -m "git"
 git push origin master
 
 git clone https://github.com/LarissaWanderley/primeiro.git nomedapasta
+
 
 git add *
 git commit -m "novo"
