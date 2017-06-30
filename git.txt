@@ -17,3 +17,11 @@ git clone https://github.com/LarissaWanderley/primeiro.git nomedapasta
 git add *
 git commit -m "novo"
 git push origin master
+
+git pull origin master
+
+git branch
+
+git branch nomedorepositorio
+git checkout nomedorepositorio
+
