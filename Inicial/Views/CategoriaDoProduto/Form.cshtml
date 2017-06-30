@@ -1,0 +1,14 @@
+﻿
+        <form action="/CategoriaDoProduto/Adiciona" method="post">
+            <label for="nome">Nome:</label>
+            <input id="nome" name="categoriaDoProduto.Nome" " value="@ViewBag.categoria.Nome" />
+            @Html.ValidationMessage("categoriaDoProduto.Nome")
+            <br />
+            <label for="descricao">descricao:</label>
+            <input id="descricao" name="categoriaDoProduto.Descricao"  value="@ViewBag.categoria.Descricao"  />
+            @Html.ValidationMessage("categoriaDoProduto.Descricao")
+
+            <input type="submit" value="Cadastrar"/>
+
+        </form>
+
