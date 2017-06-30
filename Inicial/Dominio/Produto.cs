@@ -19,7 +19,8 @@ namespace Inicial.Dominio
         [Range(0.0, 10000.0)]
         public decimal Preco { get; set; }
 
-    //    public CategoriaDoProduto Categoria { get; set; }
+        [DBTransient]
+        public CategoriaDoProduto Categoria { get; set; }
 
         public int? IdCategoria { get; set; }
 

@@ -6,6 +6,9 @@ git add *
 git config user.name "João Carlos Fonseca"
 git config user.email "jcfonsecagit@gmail.com"
 
+git config --global user.name "João Carlos Fonseca"
+git config --global user.email "jcfonsecagit@gmail.com"
+
 git commit -m "teste1"
 git log
 git status
@@ -29,4 +32,7 @@ git branch
 
 git branch nomedorepositorio
 git checkout nomedorepositorio
+
+git cherry-pick  idcommit
+
 

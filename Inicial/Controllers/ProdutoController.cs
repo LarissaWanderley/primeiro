@@ -14,7 +14,7 @@ namespace Inicial.Controllers
     {
         // GET: Produto
 
-        [Route("produtos", Name = "ListaProdutos")]
+        //[Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
             //List<Produto> produtos = DBProduto.GetByNome("");
@@ -31,8 +31,7 @@ namespace Inicial.Controllers
             ViewBag.Categorias = categorias;
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             int idDaInformatica = 1;
@@ -53,10 +52,8 @@ namespace Inicial.Controllers
                 ViewBag.Categorias = categorias;
                 return View("Form");
             }
-
-               
         }
-        [Route("produtos/{id}", Name = "VisualizaProduto")]
+       // [Route("produtos/{id}", Name = "VisualizaProduto")]
         public ActionResult Visualiza(int id)
         {
             Produto produto = DBProduto.GetById(id);
@@ -65,7 +62,6 @@ namespace Inicial.Controllers
         }
         public ActionResult DecrementaQtd(int id)
         {
-            
             Produto produto = DBProduto.GetById(id);
             produto.Quantidade--;
             DBProduto.Save(produto);

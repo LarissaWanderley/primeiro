@@ -22,7 +22,7 @@ namespace Inicial.Persistencia
             return ExecCmdSQL("SELECT * FROM ZUsuario WHERE Nome = @Nome AND Senha = @Senha ", parameters: paramentros).FirstOrDefault();
                            
         }
-        public static Usuario ValidaLogin(string login, string senha)
+        public static Usuario Valida(string login, string senha)
         {
             var paramentros = new List<DbParameter>()
             {
