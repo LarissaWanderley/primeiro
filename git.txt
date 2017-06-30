@@ -1,0 +1,10 @@
+git init
+
+git add *
+
+git commit -m "teste1"
+git log
+git status
+git remote add origin https://github.com/LarissaWanderley/primeiro.git
+git remote
+git push origin master
