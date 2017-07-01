@@ -58,7 +58,23 @@ namespace Inicial.Controllers
         {
             Produto produto = DBProduto.GetById(id);
             ViewBag.Produto = produto;
+            IList<CategoriaDoProduto> categorias = DBCategoriaDoProduto.GetAll();
+            ViewBag.Categorias = categorias;
             return View();
+        }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Altera(Produto produto)
+        {
+            if (ModelState.IsValid)
+            {
+                DBProduto.Save(produto);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Produto = produto;
+                return View("Visualiza");
+            }
         }
         public ActionResult DecrementaQtd(int id)
         {
@@ -67,6 +83,13 @@ namespace Inicial.Controllers
             DBProduto.Save(produto);
             return Json(produto);
            
+        }
+        public ActionResult Excluir(int id)
+        {
+            {
+                DBProduto.Delete(id);
+                return RedirectToAction("Index");
+            }
         }
 
     }

@@ -165,6 +165,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="DBBroker.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\CategoriaDoProduto\Index.cshtml" />
@@ -183,6 +184,10 @@
     <Content Include="Views\Usuario\Visualiza.cshtml" />
     <Content Include="Views\Usuario\Adiciona.cshtml" />
     <Content Include="Views\Usuario\Excluir.cshtml" />
+    <Content Include="Views\Usuario\Altera.cshtml" />
+    <Content Include="Views\CategoriaDoProduto\Visualiza.cshtml" />
+    <Content Include="Views\CategoriaDoProduto\Altera.cshtml" />
+    <Content Include="Views\Produto\Altera.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

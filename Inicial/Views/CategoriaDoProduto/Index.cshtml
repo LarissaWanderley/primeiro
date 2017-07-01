@@ -1,19 +1,22 @@
-﻿
+﻿@model IList<Inicial.Dominio.CategoriaDoProduto>
+
 <table class="table table-hover">
     <thead>
         <tr>
             <th>Id</th>
             <th>Nome</th>
             <th>Descrição</th>
+            <th>@Html.ActionLink("Cadastrar", "Form", "CategoriaDoProduto")</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var categoria in ViewBag.Categorias)
+        @foreach (var categoria in Model)
             {
             <tr>
                 <td>@categoria.Id</td>
-                <td>@categoria.Nome</td>
+                <td>@Html.ActionLink(categoria.Nome, "Visualiza", new { id = categoria.Id })</td>
                 <td>@categoria.Descricao</td>
+                <td>@Html.ActionLink("Excluir", "Excluir", new { id = categoria.Id })</td>
             </tr>
         }
     </tbody>

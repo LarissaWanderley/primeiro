@@ -1,10 +1,37 @@
-﻿ 
-        Id: @ViewBag.Produto.Id<br />
-        Nome: @ViewBag.Produto.Nome<br />
-        Categoria: @ViewBag.Produto.Categoria.Nome<br />
-        Preço: @ViewBag.Produto.Preco<br />
-        Descrição: @ViewBag.Produto.Descricao<br />
-        Quantidade: @ViewBag.Produto.Quantidade<br />
+﻿ <form action="/Produto/Altera" method="post">
+    @Html.AntiForgeryToken()
+   
+     <label for="nome">Id:</label>
+     <input id="nome" name="produto.Id" value="@ViewBag.Produto.Id" class="form-control" maxlength="10" readonly="readonly" />
+     @Html.ValidationMessage("produto.Id")
+     <br />
 
-        @Html.ActionLink("Voltar para a lista de produtos", "Index", "Produto")
+    <label for="nome">Nome:</label>
+    <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" class="form-control" maxlength="30" />
+    @Html.ValidationMessage("produto.Nome")
+    <br />
+    <label for="preco">Preço:</label>
+    <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" class="form-control" maxlength="30" />
+    @Html.ValidationMessage("produto.Preco")
+    <br />
+    <label for="quatnidade">Quantidade:</label>
+    <input id="quatnidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" maxlength="10" />
+    <br />
+    <label for="descricao">descricao:</label>
+    <input id="descricao" name="produto.Descricao" value="@ViewBag.Produto.Descricao" class="form-control" maxlength="50" />
+    @Html.ValidationMessage("produto.Descricao")
+    <br />
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" name="produto.IdCategoria">
+        @foreach (var categoria in ViewBag.Categorias)
+        {
+            <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.IdCategoria)">@categoria.Nome</option>
+        }
+    </select>
+    
+     @Html.ActionLink("Voltar para a lista de produtos", "Index", "Produto")
+    <br />
+    <input type="submit" value="Cadastrar" />
+
+</form>
 

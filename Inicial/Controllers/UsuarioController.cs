@@ -44,6 +44,20 @@ namespace Inicial.Controllers
                 return View("Form");
             }
         }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Altera(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                DBUsuario.Save(usuario);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Usuario = usuario; 
+                return View("Visualiza");
+            }
+        }
        
         public ActionResult Excluir(int id)
         {

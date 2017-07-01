@@ -8,6 +8,7 @@
                 <th>Preco</th>
                 <th>Quantidade</th>
                 <th></th>
+                <th>@Html.ActionLink("Cadastrar", "Form", "Produto")</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                     <td>@produto.Preco</td>
                     <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
                     <td><a href="#" onclick="decrementa(@produto.Id);">Decrementar</a></td>
+                    <td>@Html.ActionLink("Excluir", "Excluir", new { id = produto.Id })</td>
                 </tr>
             }
         </tbody>

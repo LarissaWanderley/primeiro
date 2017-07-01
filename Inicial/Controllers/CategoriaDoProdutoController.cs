@@ -13,12 +13,12 @@ namespace Inicial.Controllers
     public class CategoriaDoProdutoController : Controller
     {
         // GET: CategoriaDoProduto
-        [Route("categorias", Name = "ListaCategorias")]
+        // [Route("categorias", Name = "ListaCategorias")]
         public ActionResult Index()
         {
-            List<CategoriaDoProduto> categoria = DBCategoriaDoProduto.GetAll();
-            ViewBag.Categorias = categoria;
-            return View();
+            List<CategoriaDoProduto> categorias = DBCategoriaDoProduto.GetAll();
+           // ViewBag.Categorias = categoria;
+            return View(categorias);
         }
         public ActionResult Form()
         {
@@ -37,6 +37,33 @@ namespace Inicial.Controllers
             {
                 ViewBag.Categoria = categoriaDoProduto;
                 return View("Form");
+            }
+        }
+        public ActionResult Visualiza(int id)
+        {
+            CategoriaDoProduto categoria = DBCategoriaDoProduto.GetById(id);
+            ViewBag.Categoria = categoria;
+            return View();
+        }
+        public ActionResult Altera(CategoriaDoProduto categoria)
+        {
+            if (ModelState.IsValid)
+            {
+                DBCategoriaDoProduto.Save(categoria);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categoria = categoria;
+                return View("Visualiza");
+            }
+
+        }
+        public ActionResult Excluir(int id)
+        {
+            {
+                DBCategoriaDoProduto.Delete(id);
+                return RedirectToAction("Index");
             }
         }
     }

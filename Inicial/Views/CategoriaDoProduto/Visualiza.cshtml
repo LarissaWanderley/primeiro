@@ -1,22 +1,23 @@
-﻿
-@{
-    Layout = null;
-}
+﻿       
+<form action="/CategoriaDoProduto/Altera" method="post">
+    @Html.AntiForgeryToken()
 
-<!DOCTYPE html>
+    <label for="nome">Id:</label>
+    <input id="nome" name="categoria.Id" value="@ViewBag.Categoria.Id" class="form-control"  readonly="readonly"/>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Visualiza</title>
-</head>
-<body>
-    <div>
-        Id: @ViewBag.Categoria.Id<br />
-        Nome: @ViewBag.Categoria.Nome<br /> 
-        Descrição: @ViewBag.Categoria.Descricao<br />
+    <br />
+    <label for="nome">Nome:</label>
+    <input id="nome" name="categoria.Nome" value="@ViewBag.Categoria.Nome" class="form-control" maxlength="30" size="30"/>
+    @Html.ValidationMessage("categoria.Nome")
+    <br />
+    <label for="preco">Descricao:</label>
+    <input id="preco" name="categoria.Descricao" value="@ViewBag.Categoria.Descricao" class="form-control" maxlength="50"  size="50"/>
+    @Html.ValidationMessage("categoria.Descricao")
+    <br />
    
-        @Html.ActionLink("Voltar para a lista de produtos", "Index", "CategoriaDoProduto")
-    </div>
-</body>
-</html>
+    <input type="submit" value="Cadastrar" />
+    <br />
+ 
+    @Html.ActionLink("Voltar para a lista de categoria", "Index", "CategoriaDoProduto")
+
+</form>

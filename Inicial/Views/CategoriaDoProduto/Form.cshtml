@@ -1,11 +1,11 @@
 ﻿
         <form action="/CategoriaDoProduto/Adiciona" method="post">
             <label for="nome">Nome:</label>
-            <input id="nome" name="categoriaDoProduto.Nome" " value="@ViewBag.categoria.Nome" />
+            <input id="nome" name="categoriaDoProduto.Nome"  value="@ViewBag.categoria.Nome"  class="form-control" maxlength="30" size="30" />
             @Html.ValidationMessage("categoriaDoProduto.Nome")
             <br />
             <label for="descricao">descricao:</label>
-            <input id="descricao" name="categoriaDoProduto.Descricao"  value="@ViewBag.categoria.Descricao"  />
+            <input id="descricao" name="categoriaDoProduto.Descricao" value="@ViewBag.categoria.Descricao" class="form-control" maxlength="50" size="50" />
             @Html.ValidationMessage("categoriaDoProduto.Descricao")
 
             <input type="submit" value="Cadastrar"/>
