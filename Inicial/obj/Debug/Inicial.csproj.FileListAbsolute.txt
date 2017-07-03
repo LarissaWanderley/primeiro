@@ -97,7 +97,6 @@ C:\Users\LarissaMW\Documents\Cursos\alura\MVC\Inicial\Inicial\bin\pt\DBBroker.re
 C:\Users\LarissaMW\Documents\Cursos\alura\MVC\Inicial\Inicial\obj\Debug\Inicial.csprojResolveAssemblyReference.cache
 C:\Users\LarissaMW\Documents\Cursos\alura\MVC\Inicial\Inicial\obj\Debug\Inicial.dll
 C:\Users\LarissaMW\Documents\Cursos\alura\MVC\Inicial\Inicial\obj\Debug\Inicial.pdb
-E:\curso\MVC\primeiro\Inicial\obj\Debug\Inicial.csprojResolveAssemblyReference.cache
 E:\curso\MVC\primeiro\Inicial\obj\Debug\Inicial.dll
 E:\curso\MVC\primeiro\Inicial\obj\Debug\Inicial.pdb
 E:\curso\MVC\primeiro\Inicial\bin\ApplicationInsights.config
@@ -147,3 +146,4 @@ E:\curso\MVC\primeiro\Inicial\bin\System.Web.Webpages.Razor.xml
 E:\curso\MVC\primeiro\Inicial\bin\System.Web.Helpers.xml
 E:\curso\MVC\primeiro\Inicial\bin\System.Web.Mvc.xml
 E:\curso\MVC\primeiro\Inicial\bin\pt\DBBroker.resources.dll
+E:\curso\MVC\primeiro\Inicial\obj\Debug\Inicial.csprojResolveAssemblyReference.cache

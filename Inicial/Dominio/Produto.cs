@@ -10,7 +10,6 @@ namespace Inicial.Dominio
     [DBBroker.Mapping.DBMappedClass(Table = "ZProduto", PrimaryKey = "IdProduto")]
     public class Produto
     {
-        [DBMappedTo(Column ="IdProduto")]
         public int Id { get; set; }
 
         [StringLengthAttribute(30),Required]
@@ -18,15 +17,17 @@ namespace Inicial.Dominio
 
         [Range(0.0, 10000.0)]
         public decimal Preco { get; set; }
-
-        [DBTransient]
+        
         public CategoriaDoProduto Categoria { get; set; }
-
-        public int? IdCategoria { get; set; }
 
         [StringLengthAttribute(50)]
         public string Descricao { get; set; }
 
         public int Quantidade { get; set; }
+
+        public Produto()
+        {
+            Categoria = new CategoriaDoProduto();
+        }
     }
 }

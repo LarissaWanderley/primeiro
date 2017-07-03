@@ -7,10 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Inicial.Dominio
 {
-    [DBBroker.Mapping.DBMappedClass(Table = "ZCategoria",PrimaryKey ="IdCategoria") ]
+    [DBMappedClass(Table = "ZCategoria", PrimaryKey = "IdCategoria")]
     public class CategoriaDoProduto
     {
-        [DBMappedTo(Column = "IdCategoria")]
         public int Id { get; set; }
 
         [StringLengthAttribute(50)]
@@ -19,5 +18,5 @@ namespace Inicial.Dominio
         [StringLengthAttribute(50)]
         public String Descricao { get; set; }
 
-   }
+    }
 }

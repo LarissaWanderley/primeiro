@@ -34,8 +34,8 @@ namespace Inicial.Controllers
         [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
-            int idDaInformatica = 1;
-            if (produto.IdCategoria.Equals(idDaInformatica) && produto.Preco < 100)
+            int idDaInformatica = 2;
+            if (produto.Categoria.Id.Equals(idDaInformatica) && produto.Preco < 100)
             {
                 ModelState.AddModelError("produto.InformaticaComPrecoInvalido", "Produtos da categoria informática devem ter preço maior do que 100");
             }

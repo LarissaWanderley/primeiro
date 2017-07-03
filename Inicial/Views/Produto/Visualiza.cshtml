@@ -22,10 +22,10 @@
     @Html.ValidationMessage("produto.Descricao")
     <br />
     <label for="categoria">Categoria:</label>
-    <select id="categoria" name="produto.IdCategoria">
+    <select id="categoria" name="Produto.Categoria.Id">
         @foreach (var categoria in ViewBag.Categorias)
         {
-            <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.IdCategoria)">@categoria.Nome</option>
+            <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.Categoria.Id)">@categoria.Nome</option>
         }
     </select>
     

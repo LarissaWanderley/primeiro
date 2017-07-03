@@ -15,9 +15,16 @@
     @Html.ValidationMessage("categoria.Descricao")
     <br />
    
-    <input type="submit" value="Cadastrar" />
+   
     <br />
- 
-    @Html.ActionLink("Voltar para a lista de categoria", "Index", "CategoriaDoProduto")
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("Lista", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
+            <input type="submit" value="Alterar" class="btn btn-info pull-right" />
+            <a asp-controller=""
+           
+        </div>
+    </div>
 
 </form>
+<a asp-controller="pedido" asp-action="carrinho">Adicionar</a>

@@ -1,7 +1,7 @@
 ﻿
         <form action="/CategoriaDoProduto/Adiciona" method="post">
             <div class="row nav-divider">
-                <div class="col-md-2">
+                <div class="col-md-2 text-right">
                     <label for="nome">Nome:</label>
                 </div>
                 <div class="col-md-10">
@@ -12,19 +12,20 @@
             </div>
             <br />
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 text-right">
                     <label for="nome">Descrição:</label>
                 </div>
 
                 <div class="col-md-10">
-                    <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.categoria.Descricao" class="input-sm" maxlength="50" size="50" />
+                    <input id="nome" name="categoriaDoProduto.Descricao" value="@ViewBag.categoria.Descricao" class="input-sm" maxlength="50" size="50" />
                     <br />@Html.ValidationMessage("categoriaDoProduto.Descricao")
                 </div>
 
             </div>
                 <br />
-               
-                <input type="submit" value="Cadastrar" />
-
+            <div class="col-md-12">
+                @Html.ActionLink("Lista", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
+                <input type="submit" value="Incluir" class="btn btn-info pull-right" />
+            </div>
 </form>
 
