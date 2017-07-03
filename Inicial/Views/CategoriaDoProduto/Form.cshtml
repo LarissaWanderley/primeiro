@@ -1,14 +1,30 @@
 ﻿
         <form action="/CategoriaDoProduto/Adiciona" method="post">
-            <label for="nome">Nome:</label>
-            <input id="nome" name="categoriaDoProduto.Nome"  value="@ViewBag.categoria.Nome"  class="form-control" maxlength="30" size="30" />
-            @Html.ValidationMessage("categoriaDoProduto.Nome")
+            <div class="row nav-divider">
+                <div class="col-md-2">
+                    <label for="nome">Nome:</label>
+                </div>
+                <div class="col-md-10">
+                    <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.categoria.Nome"  class="input-sm" maxlength="30" size="30" />        
+                 <br /> @Html.ValidationMessage("categoriaDoProduto.Nome")
+                </div>
+
+            </div>
             <br />
-            <label for="descricao">descricao:</label>
-            <input id="descricao" name="categoriaDoProduto.Descricao" value="@ViewBag.categoria.Descricao" class="form-control" maxlength="50" size="50" />
-            @Html.ValidationMessage("categoriaDoProduto.Descricao")
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="nome">Descrição:</label>
+                </div>
 
-            <input type="submit" value="Cadastrar"/>
+                <div class="col-md-10">
+                    <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.categoria.Descricao" class="input-sm" maxlength="50" size="50" />
+                    <br />@Html.ValidationMessage("categoriaDoProduto.Descricao")
+                </div>
 
-        </form>
+            </div>
+                <br />
+               
+                <input type="submit" value="Cadastrar" />
+
+</form>
 
