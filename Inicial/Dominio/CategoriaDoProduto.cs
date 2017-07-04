@@ -12,11 +12,12 @@ namespace Inicial.Dominio
     {
         public int Id { get; set; }
 
-        [StringLengthAttribute(50),Required]
+        [StringLengthAttribute(50),Required,Key]
         public string Nome { get; set; }
 
         [StringLengthAttribute(50),Required]
         public String Descricao { get; set; }
 
     }
+
 }

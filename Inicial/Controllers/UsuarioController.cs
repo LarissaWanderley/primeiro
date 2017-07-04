@@ -33,6 +33,11 @@ namespace Inicial.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Adiciona(Usuario usuario)
         {
+            List<Usuario> existe = DBUsuario.GetByNome(usuario.Nome);
+            if (existe.Count > 0)
+            {
+                ModelState.AddModelError("usuario.NomeJaCadastrado", "Nome já Cadastrado");
+            }
             if (ModelState.IsValid)
             {
                 DBUsuario.Save(usuario);
@@ -66,6 +71,9 @@ namespace Inicial.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        
+
 
     }
 }

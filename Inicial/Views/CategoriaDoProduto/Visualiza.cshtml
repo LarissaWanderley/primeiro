@@ -4,19 +4,15 @@
     @Html.ValidationMessage("categoriaDoProduto.Descricao", null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("categoriaDoProduto.Nome", null, new { @class = "label btn-danger" })
     <br /><br />
-
     <label for="nome">Id:</label>
     <input id="nome" name="categoria.Id" value="@ViewBag.Categoria.Id" class="form-control"  readonly="readonly"/>
-
     <br />
     <label for="nome">Nome:</label>
     <input id="nome" name="categoria.Nome" value="@ViewBag.Categoria.Nome" class="form-control" maxlength="30" size="30"/>
     <br />
-    <label for="preco">Descricao:</label>
+    <label for="preco">Descrição:</label>
     <input id="preco" name="categoria.Descricao" value="@ViewBag.Categoria.Descricao" class="form-control" maxlength="50"  size="50"/>
     <br />
-   
-   
     <br />
     <div class="row">
         <div class="col-md-12">
@@ -24,5 +20,4 @@
             <input type="submit" value="Alterar" class="btn btn-info pull-right" />
         </div>
     </div>
-
 </form>

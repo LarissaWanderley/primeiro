@@ -1,5 +1,6 @@
 ﻿<form action="/usuario/Adiciona" method="post">
     @Html.AntiForgeryToken()
+    @Html.ValidationMessage("usuario.NomeJaCadastrado", null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("usuario.Nome", null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("usuario.Email", null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("usuario.Senha", null, new { @class = "label btn-danger" })
@@ -17,7 +18,7 @@
     <br />
     <br />
     <div class="col-md-12">
-        @Html.ActionLink("Listar", "Index", "Produto", null, new { @class = "btn btn-info  pull-right" })
+        @Html.ActionLink("Listar", "Index", "Usuario", null, new { @class = "btn btn-info  pull-right" })
         <input type="submit" value="Incluir" class="btn btn-info pull-right" />
     </div>
 
