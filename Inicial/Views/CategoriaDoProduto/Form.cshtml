@@ -1,12 +1,15 @@
 ﻿
         <form action="/CategoriaDoProduto/Adiciona" method="post">
+            @Html.ValidationMessage("categoriaDoProduto.Descricao", null, new { @class = "label btn-danger" })
+            @Html.ValidationMessage("categoriaDoProduto.Nome", null, new { @class = "label btn-danger" })
+            <br /><br />
             <div class="row nav-divider">
                 <div class="col-md-2 text-right">
                     <label for="nome">Nome:</label>
                 </div>
                 <div class="col-md-10">
                     <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.categoria.Nome"  class="input-sm" maxlength="30" size="30" />        
-                 <br /> @Html.ValidationMessage("categoriaDoProduto.Nome")
+                 <br /> 
                 </div>
 
             </div>
@@ -18,13 +21,13 @@
 
                 <div class="col-md-10">
                     <input id="nome" name="categoriaDoProduto.Descricao" value="@ViewBag.categoria.Descricao" class="input-sm" maxlength="50" size="50" />
-                    <br />@Html.ValidationMessage("categoriaDoProduto.Descricao")
+                    <br />
                 </div>
 
             </div>
                 <br />
             <div class="col-md-12">
-                @Html.ActionLink("Lista", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
+                @Html.ActionLink("Listar", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
                 <input type="submit" value="Incluir" class="btn btn-info pull-right" />
             </div>
 </form>

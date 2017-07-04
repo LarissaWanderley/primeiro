@@ -15,9 +15,7 @@
             <tr>
                 <td>@categoria.Id</td>
                 <td>@Html.ActionLink(categoria.Nome, "Visualiza", new { id = categoria.Id })</td>
-              
                 <td>@categoria.Descricao</td>
-                <td>@Html.ActionLink("Excluir", "Excluir", new { id = categoria.Id })</td>
                 <td>@Html.ActionLink("Excluir", "Excluir", "CategoriaDoProduto", new { id = categoria.Id }, new { @class = "btn btn-info  pull-right", @onclick = "JavaScript:return(confirm('Deseja Excluir?'))" })</td>
             </tr>
         }

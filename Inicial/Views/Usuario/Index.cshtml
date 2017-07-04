@@ -6,7 +6,7 @@
             <th>Id</th>
             <th>Nome </th>
             <th>E-Mail</th>
-            <th>@Html.ActionLink("Cadastrar", "Form", "Usuario")</th>
+            <th>@Html.ActionLink("Cadastrar", "Form", "Usuario", null, new { @class = "btn btn-info  pull-right" })</th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
                 <td>@usuario.Id</td>
                 <td>@Html.ActionLink(usuario.Nome, "Visualiza", new { id = usuario.Id })</td>
                 <td>@usuario.Email</td>
-                <td>@Html.ActionLink("Excluir", "Excluir", new { id = usuario.Id })</td>
+                <td>@Html.ActionLink("Excluir", "Excluir", new { id = usuario.Id }, new { @class = "btn btn-info  pull-right", @onclick = "JavaScript:return(confirm('Deseja Excluir?'))" })</td>
             </tr>
         }
     </tbody>

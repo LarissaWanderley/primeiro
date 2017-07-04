@@ -20,9 +20,10 @@ namespace Inicial.Dominio
         
         public CategoriaDoProduto Categoria { get; set; }
 
-        [StringLengthAttribute(50)]
+        [StringLengthAttribute(50), Required]
         public string Descricao { get; set; }
 
+        [Range(0.0, 10000.0)]
         public int Quantidade { get; set; }
 
         public Produto()

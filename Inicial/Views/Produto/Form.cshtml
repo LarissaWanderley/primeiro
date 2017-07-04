@@ -1,34 +1,38 @@
 ﻿
         <form action="/Produto/Adiciona" method="post">
             @Html.AntiForgeryToken()
-            @Html.ValidationMessage("produto.InformaticaComPrecoInvalido")
-
-
+            @Html.ValidationMessage("produto.InformaticaComPrecoInvalido", null, new { @class = "btn  btn-danger" }) 
+            @Html.ValidationMessage("produto.Nome",null, new { @class = "btn btn-danger" }) 
+            @Html.ValidationMessage("produto.Preco", null, new { @class = "btn btn-danger" })
+            @Html.ValidationMessage("produto.Descricao", null, new { @class = "btn btn-danger" })
+            @Html.ValidationMessage("produto.IdCategoria", null, new { @class = "btn btn-danger" })
+            <br /><br />
             <label for="nome">Nome:</label>
-            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" class="form-control" maxlength="30" />
-            @Html.ValidationMessage("produto.Nome")
+            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" class="form-control" maxlength="30"  />
             <br />
             <label for="preco">Preço:</label>
             <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" class="form-control" maxlength="30"  />
-            @Html.ValidationMessage("produto.Preco")
             <br />
             <label for="quatnidade">Quantidade:</label>
             <input id="quatnidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" maxlength="10"  />
             <br />
             <label for="descricao">descricao:</label>
             <input id="descricao" name="produto.Descricao" value="@ViewBag.Produto.Descricao" class="form-control" maxlength="50"  />
-            @Html.ValidationMessage("produto.Descricao")
             <br />
             <label for="categoria">Categoria:</label>
-            <select id="categoria" name="Produto.Categoria.Id" >
+            <select id="categoria" name="Produto.Categoria.Id" class="form-control">
                 @foreach (var categoria in ViewBag.Categorias)
                 {
                     <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.Categoria.Id)">@categoria.Nome</option>
                 }
             </select>   
-            @Html.ValidationMessage("produto.IdCategoria")
+            
             <br />
-            <input type="submit" value="Cadastrar" />
+            <br />
+            <div class="col-md-12">
+                @Html.ActionLink("Listar", "Index", "Produto", null, new { @class = "btn btn-info  pull-right" })
+                <input type="submit" value="Incluir" class="btn btn-info pull-right" />
+            </div>
 
         </form>
  

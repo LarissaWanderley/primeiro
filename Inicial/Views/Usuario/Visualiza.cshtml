@@ -1,26 +1,34 @@
 ﻿        
 <form action="/usuario/Altera" method="post">
     @Html.AntiForgeryToken()
+    @Html.ValidationMessage("usuario.Nome",  null, new { @class = "label btn-danger" })
+    @Html.ValidationMessage("usuario.Email", null, new { @class = "label btn-danger" })
+    @Html.ValidationMessage("usuario.Senha", null, new { @class = "label btn-danger" })
+    <br /><br />
 
     <label for="nome">Id:</label>
-    <input id="nome" name="usuario.Id" value="@ViewBag.Usuario.Id" readonly="readonly"  class="form-control" />
+    <input id="nome" name="usuario.Id" value="@ViewBag.Usuario.Id" readonly="readonly"  class="form-control dan" />
    
     <br />
     <label for="nome">Nome:</label>
     <input id="nome" name="usuario.Nome" value="@ViewBag.Usuario.Nome" class="form-control" maxlength="40" />
-    @Html.ValidationMessage("usuario.Nome")
     <br />
     <label for="preco">E-Mail:</label>
     <input id="preco" name="usuario.Email" value="@ViewBag.Usuario.Email" class="form-control" maxlength="50" />
-    @Html.ValidationMessage("usuario.Email")
     <br />
     <label for="quatnidade">Senha:</label>
     <input id="quatnidade" name="usuario.Senha" value="@ViewBag.Usuario.Senha" class="form-control" maxlength="10" />
-    @Html.ValidationMessage("usuario.Senha")
     <br />
-    <input type="submit" value="Cadastrar" />
     <br />
-    @Html.ActionLink("Voltar para a lista de Usuarios", "Index", "Usuario")
+
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("Listar", "Index", "Usuario", null, new { @class = "btn btn-info  pull-right" })
+            <input type="submit" value="Alterar" class="btn btn-info pull-right" />
+        </div>
+    </div>
 
 
 </form>

@@ -8,7 +8,7 @@
                 <th>Preco</th>
                 <th>Quantidade</th>
                 <th></th>
-                <th>@Html.ActionLink("Cadastrar", "Form", "Produto")</th>
+                <th>@Html.ActionLink("Cadastrar", "Form", "Produto", null, new { @class = "btn btn-info  pull-right" })</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                     <td>@produto.Preco</td>
                     <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
                     <td><a href="#" onclick="decrementa(@produto.Id);">Decrementar</a></td>
-                    <td>@Html.ActionLink("Excluir", "Excluir", new { id = produto.Id })</td>
+                    <td>@Html.ActionLink("Excluir", "Excluir", new { id = produto.Id }, new { @class = "btn btn-info  pull-right", @onclick = "JavaScript:return(confirm('Deseja Excluir?'))" })</td>
                 </tr>
             }
         </tbody>
