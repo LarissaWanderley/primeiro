@@ -16,7 +16,6 @@ namespace Inicial.Controllers
         public ActionResult Index()
         {
             List<Usuario> usuarios = DBUsuario.GetAll();
-          //  ViewBag.Usuarios = usuarios;
             return View(usuarios);
         }
         public ActionResult Form()
@@ -33,10 +32,13 @@ namespace Inicial.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Adiciona(Usuario usuario)
         {
-            List<Usuario> existe = DBUsuario.GetByNome(usuario.Nome);
-            if (existe.Count > 0)
+            if (usuario.Id == 0)
             {
-                ModelState.AddModelError("usuario.NomeJaCadastrado", "Nome já Cadastrado");
+                List<Usuario> existe = DBUsuario.GetByNome(usuario.Nome);
+                if (existe.Count > 0)
+                {
+                    ModelState.AddModelError("usuario.NomeJaCadastrado", "Nome do Usuário já Cadastrado");
+                }
             }
             if (ModelState.IsValid)
             {
@@ -71,9 +73,6 @@ namespace Inicial.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-        
-
 
     }
 }

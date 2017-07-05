@@ -1,8 +1,7 @@
 ﻿        
 <form action="/usuario/Altera" method="post">
     @Html.AntiForgeryToken()
-    @Html.ValidationMessage("usuario.NomeJaCadastrado", null, new { @class = "label btn-danger" })
-    @Html.ValidationMessage("usuario.Nome", null, new { @class = "label btn-danger" })
+    @Html.ValidationMessage("usuario.Nome",  null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("usuario.Email", null, new { @class = "label btn-danger" })
     @Html.ValidationMessage("usuario.Senha", null, new { @class = "label btn-danger" })
     <br /><br />

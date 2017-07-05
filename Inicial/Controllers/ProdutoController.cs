@@ -13,6 +13,7 @@ namespace Inicial.Controllers
     public class ProdutoController : Controller
     {
         // GET: Produto
+
         //[Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
@@ -22,6 +23,7 @@ namespace Inicial.Controllers
     
         public ActionResult Form()
         {
+            
             IList < CategoriaDoProduto > categorias = DBCategoriaDoProduto.GetAll();
             ViewBag.Produto = new Produto();
             ViewBag.Categorias = categorias;
@@ -30,21 +32,20 @@ namespace Inicial.Controllers
         [HttpPost,ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
-            var teste = ModelState.IsValid;
-            // Validar(produto);
             if (produto.Id == 0)
-            {
-                List<Produto> existe = DBProduto.GetByNome(produto.Nome);
-                if (existe.Count > 0)
-                {
-                    ModelState.AddModelError("produto.NomeJaCadastrado", "Produtos já Cadastrado");
-                }
-            }
-            int idDaInformatica = 1;
+             {
+                 List<Produto> existe = DBProduto.GetByNome(produto.Nome);
+                 if (existe.Count > 0)
+                 {
+                     ModelState.AddModelError("produto.NomeJaCadastrado", "Nome do Produtos já Cadastrado");
+                 }
+             }
+            int idDaInformatica = 2;
             if (produto.Categoria.Id.Equals(idDaInformatica) && produto.Preco < 100)
             {
                 ModelState.AddModelError("produto.InformaticaComPrecoInvalido", "Produtos da categoria informática devem ter preço maior do que 100");
             }
+
             if (ModelState.IsValid)
             {
                 DBProduto.Save(produto);
@@ -58,7 +59,6 @@ namespace Inicial.Controllers
                 return View("Form");
             }
         }
- 
        // [Route("produtos/{id}", Name = "VisualizaProduto")]
         public ActionResult Visualiza(int id)
         {
@@ -71,24 +71,7 @@ namespace Inicial.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Altera(Produto produto)
         {
-
-            var teste = ModelState.IsValid;
-
-
-            // Validar(produto);
-            if (produto.Id == 0)
-            {
-                List<Produto> existe = DBProduto.GetByNome(produto.Nome);
-                if (existe.Count > 0)
-                {
-                    ModelState.AddModelError("produto.NomeJaCadastrado", "Produtos já Cadastrado");
-                }
-            }
-            int idDaInformatica = 1;
-            if (produto.Categoria.Id.Equals(idDaInformatica) && produto.Preco < 100)
-            {
-                ModelState.AddModelError("produto.InformaticaComPrecoInvalido", "Produtos da categoria informática devem ter preço maior do que 100");
-            }
+            Criticar(produto);
 
             if (ModelState.IsValid)
             {
@@ -118,23 +101,13 @@ namespace Inicial.Controllers
                 return RedirectToAction("Index");
             }
         }
-        public void Validar(Produto produto)
+        public void Criticar(Produto produto)
         {
-            if (produto.Id == 0)
-            {
-                List<Produto> existe = DBProduto.GetByNome(produto.Nome);
-                if (existe.Count > 0)
-                {
-                    ModelState.AddModelError("produto.NomeJaCadastrado", "Produtos já Cadastrado");
-                }
-            }
-            int idDaInformatica = 1;
+            int idDaInformatica = 2;
             if (produto.Categoria.Id.Equals(idDaInformatica) && produto.Preco < 100)
             {
                 ModelState.AddModelError("produto.InformaticaComPrecoInvalido", "Produtos da categoria informática devem ter preço maior do que 100");
             }
-
-
         }
 
     }

@@ -1,17 +1,20 @@
 ﻿
-<form action="/CategoriaDoProduto/Adiciona" method="post">
-    @Html.ValidationMessage("categoriaDoProduto.Descricao", null, new { @class = "label btn-danger" })
-    @Html.ValidationMessage("categoriaDoProduto.Nome", null, new { @class = "label btn-danger" })
-    <br /><br /> 
-    <label for="nome">Nome:</label>
-    <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.Categoria.Nome" class="form-control" maxlength="30" size="30" />
-    <br />
-    <label for="preco">Descricao:</label>
-    <input id="preco" name="categoriaDoProduto.Descricao" value="@ViewBag.Categoria.Descricao" class="form-control" maxlength="50" size="50" />
-    <br />
-    <div class="col-md-12">
-        @Html.ActionLink("Listar", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
-        <input type="submit" value="Incluir" class="btn btn-info pull-right" />
-    </div>
+        <form action="/CategoriaDoProduto/Adiciona" method="post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("categoriaDoProduto.NomeJaCadastrado", null, new { @class = "label btn-danger" })
+            @Html.ValidationMessage("categoriaDoProduto.Descricao", null, new { @class = "label btn-danger" })
+            @Html.ValidationMessage("categoriaDoProduto.Nome", null, new { @class = "label btn-danger" })
+            <br /><br />
+            
+            <label for="nome">Nome:</label>
+            <input id="nome" name="categoriaDoProduto.Nome" value="@ViewBag.categoria.Nome"  class="form-control" maxlength="30" size="30" />        
+            <br /> 
+            <label for="nome">Descrição:</label>
+            <input id="nome" name="categoriaDoProduto.Descricao" value="@ViewBag.categoria.Descricao" class="form-control" maxlength="50" size="50" />
+            <br />
+            <div class="col-md-12">
+                @Html.ActionLink("Listar", "Index", "CategoriaDoProduto", null, new { @class = "btn btn-info  pull-right" })
+                <input type="submit" value="Incluir" class="btn btn-info pull-right" />
+            </div>
 </form>
 

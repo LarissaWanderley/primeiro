@@ -12,18 +12,18 @@ namespace Inicial.Dominio
     {
         public int Id { get; set; }
 
-       // [StringLengthAttribute(30),Required]
+        [StringLengthAttribute(30),Required]
         public string Nome { get; set; }
 
-       // [Range(0.0, 10000.0)]
+        [Range(0.0, 10000.0)]
         public decimal Preco { get; set; }
         
         public CategoriaDoProduto Categoria { get; set; }
 
-       // [StringLengthAttribute(50), Required]
+        [StringLengthAttribute(50), Required]
         public string Descricao { get; set; }
 
-        
+        [Range(0.0, 10000.0)]
         public int Quantidade { get; set; }
 
         public Produto()

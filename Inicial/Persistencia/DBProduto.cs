@@ -11,9 +11,9 @@ namespace Inicial.Persistencia
 {
     public class DBProduto : DBBroker<Produto>
     {
-        public static List<Produto> GetByNome(string nome)
+        internal static List<Produto> GetByNome(string nome)
         {
-            return ExecCmdSQL(cmdText: "SELECT * FROM ZProduto WHERE Nome = @Nome"
+            return ExecCmdSQL(cmdText: "SELECT * FROM ZProduto WHERE Nome = @Nome "
                 ,parameters: new List<DbParameter>() { new SqlParameter("@Nome", nome) });
         }
     }

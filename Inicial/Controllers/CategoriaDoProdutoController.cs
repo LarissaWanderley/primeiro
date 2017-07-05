@@ -17,7 +17,6 @@ namespace Inicial.Controllers
         public ActionResult Index()
         {
             List<CategoriaDoProduto> categorias = DBCategoriaDoProduto.GetAll();
-           // ViewBag.Categorias = categoria;
             return View(categorias);
         }
         public ActionResult Form()
@@ -28,6 +27,14 @@ namespace Inicial.Controllers
         [HttpPost]
         public ActionResult Adiciona(CategoriaDoProduto categoriaDoProduto)
         {
+            if (categoriaDoProduto.Id == 0)
+            {
+                List<CategoriaDoProduto> existe = DBCategoriaDoProduto.GetByNome(categoriaDoProduto.Nome);
+                if (existe.Count > 0)
+                {
+                    ModelState.AddModelError("categoriaDoProduto.NomeJaCadastrado", "Nome da Categoria de Produtos já Cadastrado");
+                }
+            }
             if (ModelState.IsValid)
             {
                 DBCategoriaDoProduto.Save(categoriaDoProduto);

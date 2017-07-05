@@ -33,9 +33,9 @@ namespace Inicial.Persistencia
             return ExecCmdSQL("SELECT * FROM ZUsuario WHERE Nome = @Nome AND Senha = @Senha ", parameters: paramentros).FirstOrDefault();
 
         }
-        public static List<Usuario> GetByNome(string nome)
+        internal static List<Usuario> GetByNome(string nome)
         {
-            return ExecCmdSQL(cmdText: "SELECT * FROM ZUsuario WHERE Nome = @Nome"
+            return ExecCmdSQL(cmdText: "SELECT * FROM ZUsuario WHERE Nome = @Nome "
                 , parameters: new List<DbParameter>() { new SqlParameter("@Nome", nome) });
         }
     }
