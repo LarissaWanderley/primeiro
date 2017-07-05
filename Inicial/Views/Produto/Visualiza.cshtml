@@ -1,11 +1,11 @@
 ﻿ <form action="/Produto/Altera" method="post">
     @Html.AntiForgeryToken()
      @Html.ValidationMessage("produto.InformaticaComPrecoInvalido", null, new { @class = "label  btn-danger" })
-     @Html.ValidationMessage("produto.Id", null, new { @class = "label btn-danger" })
      @Html.ValidationMessage("produto.Nome", null, new { @class = "label btn-danger" })
      @Html.ValidationMessage("produto.Preco", null, new { @class = "label btn-danger" })
      @Html.ValidationMessage("produto.Descricao", null, new { @class = "label btn-danger" })
-
+     @Html.ValidationMessage("produto.Quantidade", null, new { @class = "label btn-danger" })
+     @Html.ValidationMessage("produto.IdCategoria", null, new { @class = "label btn-danger" })
    <br /><br />
      <label for="nome">Id:</label>
      <input id="nome" name="produto.Id" value="@ViewBag.Produto.Id" class="form-control" maxlength="10" readonly="readonly" />

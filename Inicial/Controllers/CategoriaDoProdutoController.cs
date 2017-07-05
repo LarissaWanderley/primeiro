@@ -16,6 +16,10 @@ namespace Inicial.Controllers
         // [Route("categorias", Name = "ListaCategorias")]
         public ActionResult Index()
         {
+            if (TempData["Error"] != null)
+                {
+                ViewBag.Error = TempData["Error"];
+                 }
             List<CategoriaDoProduto> categorias = DBCategoriaDoProduto.GetAll();
             return View(categorias);
         }
@@ -27,13 +31,10 @@ namespace Inicial.Controllers
         [HttpPost]
         public ActionResult Adiciona(CategoriaDoProduto categoriaDoProduto)
         {
-            if (categoriaDoProduto.Id == 0)
+            List<CategoriaDoProduto> existe = DBCategoriaDoProduto.GetByNome(categoriaDoProduto.Nome);
+            if (existe.Count > 0)
             {
-                List<CategoriaDoProduto> existe = DBCategoriaDoProduto.GetByNome(categoriaDoProduto.Nome);
-                if (existe.Count > 0)
-                {
-                    ModelState.AddModelError("categoriaDoProduto.NomeJaCadastrado", "Nome da Categoria de Produtos já Cadastrado");
-                }
+                ModelState.AddModelError("categoriaDoProduto.NomeJaCadastrado", "Nome da Categoria de Produtos já Cadastrado");
             }
             if (ModelState.IsValid)
             {
@@ -69,8 +70,20 @@ namespace Inicial.Controllers
         public ActionResult Excluir(int id)
         {
             {
-                DBCategoriaDoProduto.Delete(id);
-                return RedirectToAction("Index");
+                List<Produto> existe = DBProduto.PesqProdutoPorCategoria(id);
+                if (existe.Count > 0)
+                {
+                   TempData ["Error"] =   "Categoria com Produtos Cadastrado";
+                    
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    DBCategoriaDoProduto.Delete(id);
+                    return RedirectToAction("Index");
+                }
+                
+
             }
         }
     }
